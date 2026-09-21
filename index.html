@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gulcan & Alham</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     MUSIK
+================================================== -->
+
+<audio
+    id="backgroundMusic"
+    preload="auto"
+>
+    <source
+        src="./musik/wedding-1min.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<button
+    id="musicButton"
+    class="music-button"
+    type="button"
+    aria-label="Pausa eller spela musik"
+>
+    ❚❚
+</button>
+
+
+
+<!-- ==================================================
+     ÖPPNINGSANIMATION
+================================================== -->
+
+<div
+    id="invitationIntro"
+    class="invitation-intro"
+>
+
+    <div
+        id="invitationCard"
+        class="invitation-card"
+    >
+
+
+        <!-- BILDEN BAKOM DÖRRARNA -->
+
+        <div class="inside-reveal">
+
+            <div class="inside-photo"></div>
+
+            <div class="inside-overlay"></div>
+
+
+            <div class="inside-text">
+
+                <div class="inside-initials">
+
+                    G
+
+                    <span>&</span>
+
+                    A
+
+                </div>
+
+
+                <p>
+                    7 NOVEMBER 2026
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- VÄNSTER DÖRR -->
+
+        <div class="door door-left">
+
+            <div class="paper-texture"></div>
+
+            <div class="door-inner-line"></div>
+
+        </div>
+
+
+
+        <!-- HÖGER DÖRR -->
+
+        <div class="door door-right">
+
+            <div class="paper-texture"></div>
+
+            <div class="door-inner-line"></div>
+
+        </div>
+
+
+
+        <!-- BABY'S BREATH -->
+
+        <img
+            src="./bilder/babys-breath.png"
+            class="baby-breath"
+            alt=""
+        >
+
+
+
+        <!-- VÄNSTER DEL AV BANDET -->
+
+        <div class="ribbon-half ribbon-left">
+
+            <img
+                src="./bilder/lace-ribbon.png"
+                alt=""
+            >
+
+        </div>
+
+
+
+        <!-- HÖGER DEL AV BANDET -->
+
+        <div class="ribbon-half ribbon-right">
+
+            <img
+                src="./bilder/lace-ribbon.png"
+                alt=""
+            >
+
+        </div>
+
+
+
+        <!-- SIGILL -->
+
+        <button
+            id="sealButton"
+            class="seal-button"
+            type="button"
+            aria-label="Öppna inbjudan"
+        >
+
+            <img
+                src="./bilder/wax-seal.png"
+                alt="Öppna inbjudan"
+            >
+
+        </button>
+
+
+
+        <div class="open-hint">
+
+            Tryck för att öppna
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     SJÄLVA INBJUDAN
+================================================== -->
+
+<main
+    id="invitation"
+    class="invitation"
+>
+
+
+    <!-- ==================================================
+         FÖRSTA SIDAN
+    =================================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-photo"></div>
+
+        <div class="hero-overlay"></div>
+
+
+
+        <img
+            src="./bilder/lily-left.png"
+            class="hero-lily hero-lily-left"
+            alt=""
+        >
+
+
+        <img
+            src="./bilder/lily-right.png"
+            class="hero-lily hero-lily-right"
+            alt=""
+        >
+
+
+
+        <div class="hero-content">
+
+
+            <p class="hero-small">
+
+                VI GIFTER OSS
+
+            </p>
+
+
+            <h1>
+
+                Gulcan
+
+                <span>&</span>
+
+                Alham
+
+            </h1>
+
+
+
+            <div class="hero-divider">
+
+                <span></span>
+
+                <i></i>
+
+                <span></span>
+
+            </div>
+
+
+
+            <p class="hero-date">
+
+                7 November 2026
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- SCROLLHJÄLP -->
+
+        <div
+            id="scrollHint"
+            class="scroll-hint"
+        >
+
+            <span>
+                Scrolla ner
+            </span>
+
+            <div class="scroll-arrow">
+                ↓
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         VÄLKOMMEN
+    =================================================== -->
+
+    <section class="section welcome-section">
+
+
+        <div class="section-content">
+
+
+            <p class="eyebrow">
+
+                VÅR BRÖLLOPSDAG
+
+            </p>
+
+
+            <h2>
+
+                Välkommen
+
+            </h2>
+
+
+            <div class="small-divider"></div>
+
+
+
+            <p class="welcome-copy">
+
+                Med stor glädje vill vi bjuda in er
+                till att fira vår stora dag
+                tillsammans med oss.
+
+            </p>
+
+
+            <div class="small-heart">
+
+                ♡
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         NEDRÄKNING
+    =================================================== -->
+
+    <section class="section countdown-section">
+
+
+        <div class="section-content">
+
+
+            <p class="eyebrow">
+
+                SNART ÄR DET DAGS
+
+            </p>
+
+
+            <h2>
+
+                Nedräkning
+
+            </h2>
+
+
+            <div class="small-divider"></div>
+
+
+
+            <div class="countdown">
+
+
+                <div>
+
+                    <strong id="days">
+                        00
+                    </strong>
+
+                    <span>
+                        Dagar
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="hours">
+                        00
+                    </strong>
+
+                    <span>
+                        Timmar
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="minutes">
+                        00
+                    </strong>
+
+                    <span>
+                        Minuter
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="seconds">
+                        00
+                    </strong>
+
+                    <span>
+                        Sekunder
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PLATS
+    =================================================== -->
+
+    <section class="section location-section">
+
+
+        <div class="section-content">
+
+
+            <p class="eyebrow">
+
+                PLATS
+
+            </p>
+
+
+            <h2>
+
+                Mona Lisa Festvåning
+
+            </h2>
+
+
+            <div class="small-divider"></div>
+
+
+
+            <p class="address">
+
+                Klockarvägen 118
+
+                <br>
+
+                151 61 Södertälje
+
+            </p>
+
+
+
+            <div class="map-container">
+
+                <iframe
+                    src="https://www.google.com/maps?q=Mona+Lisa+Festvåning,+Klockarvägen+118,+151+61+Södertälje&output=embed"
+                    loading="lazy"
+                    title="Mona Lisa Festvåning"
+                ></iframe>
+
+            </div>
+
+
+
+            <a
+                class="map-button"
+                href="https://www.google.com/maps/dir/?api=1&destination=Mona+Lisa+Festvåning,+Klockarvägen+118,+151+61+Södertälje"
+                target="_blank"
+                rel="noopener"
+            >
+
+                Vägbeskrivning
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PROGRAM
+    =================================================== -->
+
+    <section class="section program-section">
+
+
+        <div class="section-content">
+
+
+            <p class="eyebrow">
+
+                VÅR DAG
+
+            </p>
+
+
+            <h2>
+
+                Program
+
+            </h2>
+
+
+            <div class="small-divider"></div>
+
+
+
+            <p class="program-coming">
+
+                Mer information kommer snart.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INFORMATION
+    =================================================== -->
+
+    <section class="section information-section">
+
+
+        <div class="section-content">
+
+
+            <p class="eyebrow">
+
+                BRA ATT VETA
+
+            </p>
+
+
+            <h2>
+
+                Information
+
+            </h2>
+
+
+            <div class="small-divider"></div>
+
+
+
+            <div class="information-card">
+
+
+                <div class="small-heart">
+
+                    ♡
+
+                </div>
+
+
+                <h3>
+
+                    Barnfritt bröllop
+
+                </h3>
+
+
+                <p>
+
+                    Vi älskar era barn, men denna dag
+                    önskar vi fira i vuxet sällskap.
+
+                    <br><br>
+
+                    Tack för er förståelse ♡
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         OSA
+    =================================================== -->
+
+    <section class="section rsvp-section">
+
+
+        <div class="section-content">
+
+
+            <p class="eyebrow">
+
+                VI HOPPAS ATT NI KAN KOMMA
+
+            </p>
+
+
+            <h2>
+
+                OSA
+
+            </h2>
+
+
+            <div class="small-divider"></div>
+
+
+
+            <p class="rsvp-description">
+
+                Vänligen meddela om ni kan närvara
+                och hur många personer ni kommer.
+
+            </p>
+
+
+
+            <div class="rsvp-deadline">
+
+
+                <span>
+
+                    OSA SENAST
+
+                </span>
+
+
+                <strong>
+
+                    22 Oktober 2026
+
+                </strong>
+
+
+            </div>
+
+
+
+            <!-- OSA FORMULÄR -->
+
+            <form id="rsvpForm">
+
+
+                <!-- NAMN -->
+
+                <div class="form-group">
+
+
+                    <label for="guestName">
+
+                        Namn
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="guestName"
+                        placeholder="Ditt namn"
+                        autocomplete="name"
+                        required
+                    >
+
+
+                </div>
+
+
+
+                <!-- JA / NEJ -->
+
+                <div class="form-group">
+
+
+                    <label>
+
+                        Kan du medverka?
+
+                    </label>
+
+
+                    <div class="attendance-buttons">
+
+
+                        <button
+                            type="button"
+                            class="attendance-button"
+                            data-value="Ja"
+                        >
+
+                            Ja, jag kommer
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="attendance-button"
+                            data-value="Nej"
+                        >
+
+                            Nej, tyvärr
+
+                        </button>
+
+
+                    </div>
+
+
+                    <input
+                        type="hidden"
+                        id="attendance"
+                    >
+
+
+                </div>
+
+
+
+                <!-- ANTAL PERSONER -->
+
+                <div
+                    class="form-group"
+                    id="guestCountSection"
+                >
+
+
+                    <label>
+
+                        Hur många personer kommer?
+
+                    </label>
+
+
+                    <div class="guest-counter">
+
+
+                        <button
+                            type="button"
+                            id="minusGuest"
+                            aria-label="Minska antal personer"
+                        >
+
+                            −
+
+                        </button>
+
+
+                        <span id="guestCount">
+
+                            1
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            id="plusGuest"
+                            aria-label="Öka antal personer"
+                        >
+
+                            +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- SKICKA -->
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+
+                    Skicka OSA
+
+                </button>
+
+
+                <p
+                    id="formError"
+                    class="form-error"
+                ></p>
+
+
+            </form>
+
+
+
+            <!-- BEKRÄFTELSE -->
+
+            <div
+                id="confirmation"
+                class="confirmation"
+            >
+
+
+                <div class="confirmation-heart">
+
+                    ♡
+
+                </div>
+
+
+                <h3>
+
+                    Tack för ditt svar
+
+                </h3>
+
+
+                <p>
+
+                    Ditt svar har registrerats.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
+    <footer class="footer">
+
+
+        <div class="footer-initials">
+
+            G
+
+            <span>&</span>
+
+            A
+
+        </div>
+
+
+        <p>
+
+            7 NOVEMBER 2026
+
+        </p>
+
+
+    </footer>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     SUPABASE
+================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

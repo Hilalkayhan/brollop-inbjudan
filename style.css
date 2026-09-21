@@ -1,0 +1,2417 @@
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+
+    background: #f5eee5;
+    color: #50483f;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ==================================================
+   INTRO
+================================================== */
+
+.invitation-intro {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #faf7f1 0%,
+            #eee4d7 55%,
+            #d9c7b1 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.invitation-intro.finished {
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   KORT
+================================================== */
+
+.invitation-card {
+    position: relative;
+
+    width: min(520px, 84vw);
+
+    aspect-ratio: 0.72 / 1;
+
+    perspective: 2200px;
+
+    transform-style: preserve-3d;
+
+    filter:
+        drop-shadow(
+            0 28px 28px
+            rgba(57, 43, 29, 0.18)
+        );
+}
+
+
+/* ==================================================
+   BILDEN BAKOM DÖRRARNA
+================================================== */
+
+.inside-reveal {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    overflow: hidden;
+
+    background: #ddd1c4;
+}
+
+.inside-photo {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("./bilder/couple.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    filter: grayscale(100%);
+
+    transform: scale(1.03);
+}
+
+.inside-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(244, 237, 228, 0.36),
+            rgba(226, 213, 198, 0.42)
+        );
+}
+
+.inside-text {
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #fffaf3;
+
+    text-shadow:
+        0 2px 15px
+        rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 1.3s ease 1.4s,
+        transform 1.3s ease 1.4s;
+}
+
+.invitation-card.open .inside-text {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.inside-initials {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 72px;
+
+    letter-spacing: 5px;
+}
+
+.inside-initials span {
+    font-size: 0.65em;
+}
+
+.inside-text p {
+    margin-top: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+/* ==================================================
+   DÖRRAR
+================================================== */
+
+.door {
+    position: absolute;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    z-index: 5;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    backface-visibility: hidden;
+
+    background:
+        linear-gradient(
+            105deg,
+            #fffefa 0%,
+            #f7f1e8 47%,
+            #e9ddce 100%
+        );
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(90, 66, 40, 0.035);
+
+    transition:
+        transform 1.65s
+        cubic-bezier(0.45, 0, 0.2, 1),
+        opacity 0.8s ease;
+
+    transition-delay: 1.05s;
+}
+
+.door-left {
+    left: 0;
+
+    transform-origin:
+        left center;
+}
+
+.door-right {
+    right: 0;
+
+    transform-origin:
+        right center;
+}
+
+.invitation-card.open .door-left {
+    transform:
+        rotateY(-82deg);
+}
+
+.invitation-card.open .door-right {
+    transform:
+        rotateY(82deg);
+}
+
+
+/* ==================================================
+   PAPPERSTEXTUR
+================================================== */
+
+.paper-texture {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.6;
+
+    background:
+        repeating-linear-gradient(
+            1deg,
+            rgba(255, 255, 255, 0.18) 0,
+            rgba(255, 255, 255, 0.18) 1px,
+            transparent 1px,
+            transparent 5px
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.35),
+            transparent 70%
+        );
+}
+
+.door-inner-line {
+    position: absolute;
+
+    top: 18px;
+    bottom: 18px;
+
+    width: 1px;
+
+    background:
+        rgba(175, 139, 88, 0.20);
+}
+
+.door-left .door-inner-line {
+    right: 17px;
+}
+
+.door-right .door-inner-line {
+    left: 17px;
+}
+
+
+/* ==================================================
+   BABY'S BREATH
+================================================== */
+
+.baby-breath {
+    position: absolute;
+
+    left: 50%;
+    top: 18%;
+
+    width: 48%;
+    height: 52%;
+
+    z-index: 7;
+
+    object-fit: contain;
+
+    object-position:
+        center bottom;
+
+    transform:
+        translateX(-50%)
+        translateY(0)
+        rotate(0deg);
+
+    transform-origin:
+        center bottom;
+
+    filter:
+        drop-shadow(
+            0 7px 6px
+            rgba(63, 50, 38, 0.10)
+        );
+
+    transition:
+        transform 1.25s
+        cubic-bezier(0.4, 0, 0.25, 1),
+        opacity 0.9s ease;
+
+    transition-delay: 0.48s;
+}
+
+.invitation-card.open .baby-breath {
+    transform:
+        translateX(-50%)
+        translateY(105px)
+        rotate(7deg);
+
+    opacity: 0;
+}
+
+
+/* ==================================================
+   SPETSBAND
+================================================== */
+
+.ribbon-half {
+    position: absolute;
+
+    top: 53%;
+
+    width: 50%;
+    height: 28%;
+
+    z-index: 8;
+
+    overflow: hidden;
+
+    transform:
+        translateY(-50%);
+
+    transition:
+        transform 1.15s
+        cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.9s ease;
+
+    transition-delay: 0.27s;
+}
+
+.ribbon-half img {
+    position: absolute;
+
+    top: 50%;
+
+    width: 200%;
+
+    max-width: none;
+
+    transform:
+        translateY(-50%);
+
+    filter:
+        drop-shadow(
+            0 4px 4px
+            rgba(62, 47, 31, 0.08)
+        );
+}
+
+.ribbon-left {
+    left: 0;
+}
+
+.ribbon-left img {
+    left: 0;
+}
+
+.ribbon-right {
+    right: 0;
+}
+
+.ribbon-right img {
+    right: 0;
+}
+
+.invitation-card.open .ribbon-left {
+    transform:
+        translateY(-50%)
+        translateX(-75px)
+        rotate(-3deg);
+
+    opacity: 0;
+}
+
+.invitation-card.open .ribbon-right {
+    transform:
+        translateY(-50%)
+        translateX(75px)
+        rotate(3deg);
+
+    opacity: 0;
+}
+
+
+/* ==================================================
+   SIGILL
+================================================== */
+
+.seal-button {
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    z-index: 15;
+
+    width: 19%;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    filter:
+        drop-shadow(
+            0 9px 8px
+            rgba(73, 48, 25, 0.24)
+        );
+
+    animation:
+        sealPulse
+        2.5s
+        ease-in-out
+        infinite;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.45s ease;
+}
+
+.seal-button img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+@keyframes sealPulse {
+
+    0%,
+    55%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    65% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+    73% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    80% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.045);
+    }
+
+    88% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+.invitation-card.open .seal-button {
+    animation: none;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.70);
+}
+
+
+/* ==================================================
+   TRYCK FÖR ATT ÖPPNA
+================================================== */
+
+.open-hint {
+    position: absolute;
+
+    left: 50%;
+    top: 64%;
+
+    z-index: 15;
+
+    transform:
+        translateX(-50%);
+
+    white-space: nowrap;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(104, 83, 61, 0.65);
+
+    transition:
+        opacity 0.35s ease;
+}
+
+.invitation-card.open .open-hint {
+    opacity: 0;
+}
+
+
+/* ==================================================
+   MUSIKKNAPP
+================================================== */
+
+.music-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 500;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(151, 112, 61, 0.45);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 250, 244, 0.92);
+
+    color: #8b6838;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px
+        rgba(65, 48, 31, 0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease,
+        transform 0.5s ease,
+        background 0.3s ease;
+}
+
+.music-button.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+.music-button:hover {
+    background: #fffaf4;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #d9cec2;
+}
+
+.hero-photo {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("./bilder/couple.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter:
+        grayscale(100%);
+
+    opacity: 0.76;
+
+    transform:
+        scale(1.025);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            rgba(242, 235, 227, 0.25),
+            rgba(227, 215, 201, 0.38)
+        );
+}
+
+
+/* ==================================================
+   HERO LILJOR
+================================================== */
+
+.hero-lily {
+    position: absolute;
+
+    top: 0;
+
+    z-index: 2;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    opacity: 0.72;
+}
+
+.hero-lily-left {
+    left: -3%;
+}
+
+.hero-lily-right {
+    right: -3%;
+}
+
+
+/* ==================================================
+   HERO TEXT
+================================================== */
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(700px, 90%);
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #fffaf3;
+
+    text-shadow:
+        0 3px 18px
+        rgba(36, 27, 19, 0.30);
+}
+
+.hero-small {
+    margin-bottom: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            55px,
+            10vw,
+            100px
+        );
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+.hero h1 span {
+    display: block;
+
+    margin: 5px 0;
+
+    font-size: 0.55em;
+
+    font-style: italic;
+}
+
+.hero-divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin:
+        27px auto 20px;
+}
+
+.hero-divider span {
+    width: 65px;
+    height: 1px;
+
+    background:
+        rgba(
+            255,
+            248,
+            235,
+            0.65
+        );
+}
+
+.hero-divider i {
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #f6e6ca;
+}
+
+.hero-date {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==================================================
+   SCROLLHJÄLP
+================================================== */
+
+.scroll-hint {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    z-index: 10;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    color: #fff7e9;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+.scroll-hint.visible {
+    opacity: 0.9;
+}
+
+.scroll-hint > span {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.scroll-arrow {
+    margin-top: 3px;
+
+    font-size: 27px;
+
+    animation:
+        arrowBounce
+        1.4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(8px);
+    }
+}
+
+
+/* ==================================================
+   ALLA UNDERSIDOR
+================================================== */
+
+.section {
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        90px 45px;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.section-content {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(680px, 100%);
+}
+
+
+/* ==================================================
+   DEKORATIVA SIDOLINJER
+================================================== */
+
+/*
+   Två mycket tunna linjer längs varje sida.
+   Ger känslan av exklusivt tryckt brevpapper.
+*/
+
+.welcome-section::before,
+.countdown-section::before,
+.location-section::before,
+.program-section::before,
+.information-section::before,
+.rsvp-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 40px;
+    bottom: 40px;
+    left: 22px;
+
+    width: 4px;
+
+    border-left:
+        1px solid
+        rgba(157, 121, 72, 0.22);
+
+    border-right:
+        1px solid
+        rgba(157, 121, 72, 0.08);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.welcome-section::after,
+.countdown-section::after,
+.location-section::after,
+.program-section::after,
+.information-section::after,
+.rsvp-section::after {
+    content: "";
+
+    position: absolute;
+
+    top: 40px;
+    bottom: 40px;
+    right: 22px;
+
+    width: 4px;
+
+    border-left:
+        1px solid
+        rgba(157, 121, 72, 0.08);
+
+    border-right:
+        1px solid
+        rgba(157, 121, 72, 0.22);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* ==================================================
+   SMÅ RUBRIKER
+================================================== */
+
+.eyebrow {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #987d5b;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+
+    width: 32px;
+    height: 1px;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                158,
+                120,
+                68,
+                0.55
+            )
+        );
+}
+
+.eyebrow::after {
+    transform:
+        scaleX(-1);
+}
+
+
+/* ==================================================
+   HUVUDRUBRIKER
+================================================== */
+
+.section h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            44px,
+            7vw,
+            60px
+        );
+
+    font-weight: 400;
+
+    color: #85632f;
+}
+
+
+/* ==================================================
+   DEKORATION UNDER RUBRIKER
+================================================== */
+
+.small-divider {
+    position: relative;
+
+    width: 130px;
+    height: 1px;
+
+    margin:
+        24px auto 36px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                157,
+                118,
+                65,
+                0.65
+            ),
+            transparent
+        );
+}
+
+.small-divider::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    background: #a17a45;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+
+    box-shadow:
+        0 0 0 5px
+        #fffaf4;
+}
+
+
+/* Rätt färg runt diamanten */
+
+.countdown-section
+.small-divider::before,
+.program-section
+.small-divider::before {
+    box-shadow:
+        0 0 0 5px
+        #f1e7dc;
+}
+
+.rsvp-section
+.small-divider::before {
+    box-shadow:
+        0 0 0 5px
+        #f6eee5;
+}
+
+
+/* ==================================================
+   BAKGRUNDSFÄRGER
+================================================== */
+
+.welcome-section,
+.location-section,
+.information-section {
+    background: #fffaf4;
+}
+
+.countdown-section,
+.program-section {
+    background: #f1e7dc;
+}
+
+
+/* ==================================================
+   LITEN BLOMDEKORATION
+================================================== */
+
+/*
+   En diskret blomma längst ner i varje sektion.
+*/
+
+.section-content::after {
+    content: "✾";
+
+    display: block;
+
+    width: 32px;
+
+    margin:
+        38px auto 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    color:
+        rgba(
+            151,
+            111,
+            59,
+            0.46
+        );
+}
+
+
+/* Lite mjukare blomma på välkomstsidan */
+
+.welcome-section
+.section-content::after {
+    content: "❀";
+
+    font-size: 26px;
+}
+
+
+/* ==================================================
+   VÄLKOMMEN
+================================================== */
+
+.welcome-copy {
+    max-width: 510px;
+
+    margin: auto;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    line-height: 1.9;
+}
+
+.small-heart {
+    margin-top: 25px;
+
+    font-size: 28px;
+
+    color: #9b743c;
+}
+
+
+/* ==================================================
+   NEDRÄKNING
+================================================== */
+
+.countdown {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    padding-top: 12px;
+}
+
+.countdown::before {
+    content: "";
+
+    position: absolute;
+
+    top: -7px;
+    left: 50%;
+
+    width: 42px;
+    height: 1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        rgba(
+            154,
+            116,
+            64,
+            0.28
+        );
+}
+
+.countdown div {
+    min-width: 90px;
+}
+
+.countdown strong {
+    display: block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 50px;
+
+    font-weight: 400;
+
+    color: #936d36;
+}
+
+.countdown span {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==================================================
+   PLATS
+================================================== */
+
+.address {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    line-height: 1.8;
+}
+
+.map-container {
+    position: relative;
+
+    width:
+        min(750px, 92vw);
+
+    height: 330px;
+
+    margin:
+        35px auto 25px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            157,
+            119,
+            67,
+            0.18
+        );
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(
+            75,
+            55,
+            36,
+            0.08
+        );
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+.map-button {
+    display: inline-block;
+
+    min-width: 160px;
+
+    padding:
+        13px 27px;
+
+    border:
+        1px solid
+        rgba(
+            155,
+            116,
+            63,
+            0.60
+        );
+
+    background:
+        rgba(
+            255,
+            250,
+            244,
+            0.50
+        );
+
+    color: #7e5c31;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.map-button:hover {
+    background: #95703f;
+
+    color: #fffaf3;
+}
+
+
+/* ==================================================
+   PROGRAM
+================================================== */
+
+.program-coming {
+    position: relative;
+
+    display: inline-block;
+
+    padding:
+        28px 45px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+}
+
+.program-coming::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px solid
+        rgba(
+            155,
+            116,
+            63,
+            0.17
+        );
+}
+
+
+/* Små hörn på programrutan */
+
+.program-coming::after {
+    content: "◇";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -10px;
+
+    width: 28px;
+
+    transform:
+        translateX(-50%);
+
+    background: #f1e7dc;
+
+    color:
+        rgba(
+            145,
+            106,
+            57,
+            0.58
+        );
+
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   INFORMATION
+================================================== */
+
+.information-card {
+    position: relative;
+
+    max-width: 520px;
+
+    margin: auto;
+
+    padding:
+        42px 38px;
+
+    border:
+        1px solid
+        rgba(
+            155,
+            116,
+            63,
+            0.16
+        );
+}
+
+.information-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border:
+        1px solid
+        rgba(
+            155,
+            116,
+            63,
+            0.08
+        );
+
+    pointer-events: none;
+}
+
+.information-card::after {
+    content: "◇";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -10px;
+
+    width: 28px;
+
+    transform:
+        translateX(-50%);
+
+    background: #fffaf4;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    color:
+        rgba(
+            145,
+            106,
+            57,
+            0.55
+        );
+}
+
+.information-card h3 {
+    margin:
+        10px 0 15px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 31px;
+
+    font-weight: 400;
+
+    color: #80602f;
+}
+
+.information-card p {
+    line-height: 2;
+}
+
+
+/* ==================================================
+   OSA
+================================================== */
+
+.rsvp-section {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f3e9de 0%,
+            #faf5ee 100%
+        );
+}
+
+.rsvp-description {
+    max-width: 450px;
+
+    margin:
+        0 auto 28px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    color: #675c50;
+}
+
+.rsvp-deadline {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin:
+        0 auto 42px;
+}
+
+.rsvp-deadline span {
+    margin-bottom: 5px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #9c815d;
+}
+
+.rsvp-deadline strong {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    color: #846231;
+}
+
+
+/* ==================================================
+   OSA FORMULÄR
+================================================== */
+
+#rsvpForm {
+    position: relative;
+
+    width:
+        min(500px, 100%);
+
+    margin:
+        0 auto;
+
+    padding:
+        38px 34px;
+
+    background:
+        rgba(
+            255,
+            252,
+            247,
+            0.72
+        );
+
+    border:
+        1px solid
+        rgba(
+            157,
+            119,
+            67,
+            0.24
+        );
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(
+            76,
+            57,
+            38,
+            0.07
+        );
+}
+
+
+/* Innerlinje på OSA-rutan */
+
+#rsvpForm::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border:
+        1px solid
+        rgba(
+            157,
+            119,
+            67,
+            0.08
+        );
+
+    pointer-events: none;
+}
+
+.form-group {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 30px;
+
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    color: #856b49;
+}
+
+
+/* ==================================================
+   NAMN
+================================================== */
+
+#guestName {
+    width: 100%;
+
+    padding:
+        14px 3px;
+
+    border: 0;
+
+    border-bottom:
+        1px solid
+        rgba(
+            142,
+            108,
+            63,
+            0.40
+        );
+
+    outline: none;
+
+    background: transparent;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 21px;
+
+    color: #51483f;
+
+    transition:
+        border-color 0.3s ease;
+}
+
+#guestName:focus {
+    border-bottom-color:
+        #9b7440;
+}
+
+#guestName::placeholder {
+    color:
+        rgba(
+            81,
+            72,
+            63,
+            0.42
+        );
+}
+
+
+/* ==================================================
+   JA / NEJ
+================================================== */
+
+.attendance-buttons {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+.attendance-button {
+    min-height: 48px;
+
+    padding: 12px;
+
+    border:
+        1px solid
+        rgba(
+            146,
+            111,
+            65,
+            0.38
+        );
+
+    background: transparent;
+
+    color: #725a3b;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.attendance-button:hover {
+    border-color:
+        #9b7440;
+}
+
+.attendance-button.selected {
+    background: #96703d;
+
+    border-color:
+        #96703d;
+
+    color: #fffaf3;
+}
+
+
+/* ==================================================
+   GÄSTRÄKNARE
+================================================== */
+
+.guest-counter {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 27px;
+
+    min-height: 60px;
+
+    border:
+        1px solid
+        rgba(
+            146,
+            111,
+            65,
+            0.25
+        );
+}
+
+.guest-counter button {
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #886536;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+#guestCount {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    color: #635446;
+}
+
+
+/* ==================================================
+   SKICKA OSA
+================================================== */
+
+.submit-button {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding:
+        16px 25px;
+
+    border:
+        1px solid
+        #95703f;
+
+    background:
+        #95703f;
+
+    color:
+        #fffaf3;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.submit-button:hover {
+    background: transparent;
+
+    color: #856131;
+}
+
+.submit-button:disabled {
+    opacity: 0.55;
+
+    cursor: default;
+}
+
+
+/* ==================================================
+   FELMEDDELANDE
+================================================== */
+
+.form-error {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 20px;
+
+    margin-top: 14px;
+
+    font-size: 11px;
+
+    color: #8b3f3f;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   OSA BEKRÄFTELSE
+================================================== */
+
+.confirmation {
+    display: none;
+
+    position: relative;
+
+    width:
+        min(500px, 100%);
+
+    margin:
+        30px auto 0;
+
+    padding:
+        45px 25px;
+
+    border:
+        1px solid
+        rgba(
+            156,
+            119,
+            67,
+            0.25
+        );
+
+    background:
+        rgba(
+            255,
+            252,
+            247,
+            0.65
+        );
+}
+
+.confirmation-heart {
+    margin-bottom: 10px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 35px;
+
+    color: #96703d;
+}
+
+.confirmation h3 {
+    margin-bottom: 10px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    color: #80602f;
+}
+
+.confirmation p {
+    font-size: 12px;
+
+    color: #675d52;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer {
+    position: relative;
+
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-top:
+        1px solid
+        rgba(
+            150,
+            112,
+            61,
+            0.18
+        );
+
+    background:
+        #e7dbcd;
+
+    color:
+        #84663e;
+
+    text-align: center;
+}
+
+
+/* Blomma ovanför initialerna */
+
+.footer::before {
+    content: "❀";
+
+    position: absolute;
+
+    top: 35px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    color:
+        rgba(
+            137,
+            101,
+            55,
+            0.42
+        );
+}
+
+
+/* Små linjer runt blomman */
+
+.footer::after {
+    content: "";
+
+    position: absolute;
+
+    top: 47px;
+    left: 50%;
+
+    width: 110px;
+    height: 1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                137,
+                101,
+                55,
+                0
+            ),
+            rgba(
+                137,
+                101,
+                55,
+                0.28
+            ),
+            rgba(
+                137,
+                101,
+                55,
+                0
+            )
+        );
+}
+
+.footer-initials {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 15px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 55px;
+
+    letter-spacing: 4px;
+}
+
+.footer-initials span {
+    font-size: 0.6em;
+
+    font-style: italic;
+}
+
+.footer p {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* ==================================================
+   MOBIL
+================================================== */
+
+@media (max-width: 700px) {
+
+    .invitation-card {
+        width: 87vw;
+    }
+
+
+    .baby-breath {
+        width: 53%;
+    }
+
+
+    .seal-button {
+        width: 21%;
+    }
+
+
+    .open-hint {
+        top: 65%;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .music-button {
+        right: 15px;
+        bottom: 15px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .hero-photo {
+        opacity: 0.78;
+    }
+
+
+    .hero-lily {
+        height: 88%;
+
+        top: 6%;
+
+        opacity: 0.64;
+    }
+
+
+    .hero-lily-left {
+        left: -28%;
+    }
+
+
+    .hero-lily-right {
+        right: -28%;
+    }
+
+
+    .section {
+        padding:
+            75px 30px;
+    }
+
+
+    /* Sidolinjer */
+
+    .welcome-section::before,
+    .countdown-section::before,
+    .location-section::before,
+    .program-section::before,
+    .information-section::before,
+    .rsvp-section::before {
+        left: 10px;
+
+        top: 28px;
+        bottom: 28px;
+    }
+
+
+    .welcome-section::after,
+    .countdown-section::after,
+    .location-section::after,
+    .program-section::after,
+    .information-section::after,
+    .rsvp-section::after {
+        right: 10px;
+
+        top: 28px;
+        bottom: 28px;
+    }
+
+
+    /* Små rubriker */
+
+    .eyebrow {
+        gap: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .eyebrow::before,
+    .eyebrow::after {
+        width: 20px;
+    }
+
+
+    /* Dekorationslinje */
+
+    .small-divider {
+        width: 105px;
+    }
+
+
+    /* Nedräkning */
+
+    .countdown {
+        gap: 12px;
+    }
+
+
+    .countdown div {
+        min-width: 67px;
+    }
+
+
+    .countdown strong {
+        font-size: 39px;
+    }
+
+
+    /* Karta */
+
+    .map-container {
+        height: 270px;
+    }
+
+
+    /* Program */
+
+    .program-coming {
+        padding:
+            24px 30px;
+    }
+
+
+    /* Information */
+
+    .information-card {
+        padding:
+            35px 23px;
+    }
+
+
+    /* OSA */
+
+    #rsvpForm {
+        padding:
+            32px 20px;
+    }
+
+
+    .attendance-buttons {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .rsvp-description {
+        font-size: 19px;
+    }
+
+
+    .rsvp-deadline strong {
+        font-size: 25px;
+    }
+}
+
+
+/* ==================================================
+   MYCKET SMÅ MOBILER
+================================================== */
+
+@media (max-width: 400px) {
+
+    .section {
+        padding-left: 27px;
+        padding-right: 27px;
+    }
+
+
+    .countdown {
+        gap: 7px;
+    }
+
+
+    .countdown div {
+        min-width: 61px;
+    }
+
+
+    .countdown strong {
+        font-size: 34px;
+    }
+
+
+    .countdown span {
+        font-size: 7px;
+    }
+
+
+    .hero-date {
+        font-size: 19px;
+    }
+
+
+    .hero-divider span {
+        width: 45px;
+    }
+
+
+    .eyebrow {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .eyebrow::before,
+    .eyebrow::after {
+        width: 14px;
+    }
+}
+
+
+/* ==================================================
+   REDUCERAD RÖRELSE
+================================================== */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .seal-button,
+    .scroll-arrow {
+        animation: none;
+    }
+}

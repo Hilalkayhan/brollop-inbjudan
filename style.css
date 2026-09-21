@@ -58,7 +58,6 @@ body {
 .invitation-intro.finished {
     opacity: 0;
     visibility: hidden;
-
     pointer-events: none;
 }
 
@@ -71,11 +70,9 @@ body {
     position: relative;
 
     width: min(520px, 84vw);
-
     aspect-ratio: 0.72 / 1;
 
     perspective: 2200px;
-
     transform-style: preserve-3d;
 
     filter:
@@ -155,14 +152,11 @@ body {
 
 .invitation-card.open .inside-text {
     opacity: 1;
-
     transform: translateY(0);
 }
 
 .inside-initials {
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family: "Cormorant Garamond", serif;
 
     font-size: 72px;
 
@@ -188,7 +182,6 @@ body {
 
 .door {
     position: absolute;
-
     top: 0;
 
     width: 50%;
@@ -199,7 +192,6 @@ body {
     overflow: hidden;
 
     transform-style: preserve-3d;
-
     backface-visibility: hidden;
 
     background:
@@ -224,26 +216,20 @@ body {
 
 .door-left {
     left: 0;
-
-    transform-origin:
-        left center;
+    transform-origin: left center;
 }
 
 .door-right {
     right: 0;
-
-    transform-origin:
-        right center;
+    transform-origin: right center;
 }
 
 .invitation-card.open .door-left {
-    transform:
-        rotateY(-82deg);
+    transform: rotateY(-82deg);
 }
 
 .invitation-card.open .door-right {
-    transform:
-        rotateY(82deg);
+    transform: rotateY(82deg);
 }
 
 
@@ -309,17 +295,14 @@ body {
     z-index: 7;
 
     object-fit: contain;
-
-    object-position:
-        center bottom;
+    object-position: center bottom;
 
     transform:
         translateX(-50%)
         translateY(0)
         rotate(0deg);
 
-    transform-origin:
-        center bottom;
+    transform-origin: center bottom;
 
     filter:
         drop-shadow(
@@ -361,8 +344,7 @@ body {
 
     overflow: hidden;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
     transition:
         transform 1.15s
@@ -378,11 +360,9 @@ body {
     top: 50%;
 
     width: 200%;
-
     max-width: none;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
     filter:
         drop-shadow(
@@ -534,8 +514,7 @@ body {
 
     z-index: 15;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     white-space: nowrap;
 
@@ -548,8 +527,7 @@ body {
     color:
         rgba(104, 83, 61, 0.65);
 
-    transition:
-        opacity 0.35s ease;
+    transition: opacity 0.35s ease;
 }
 
 .invitation-card.open .open-hint {
@@ -600,11 +578,9 @@ body {
         rgba(65, 48, 31, 0.12);
 
     opacity: 0;
-
     visibility: hidden;
 
-    transform:
-        translateY(10px);
+    transform: translateY(10px);
 
     transition:
         opacity 0.5s ease,
@@ -615,11 +591,9 @@ body {
 
 .music-button.visible {
     opacity: 1;
-
     visibility: visible;
 
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
 .music-button:hover {
@@ -654,16 +628,13 @@ body {
         url("./bilder/couple.jpg");
 
     background-size: cover;
-
     background-position: center;
 
-    filter:
-        grayscale(100%);
+    filter: grayscale(100%);
 
     opacity: 0.76;
 
-    transform:
-        scale(1.025);
+    transform: scale(1.025);
 }
 
 .hero-overlay {
@@ -718,8 +689,7 @@ body {
 
     z-index: 5;
 
-    width:
-        min(700px, 90%);
+    width: min(700px, 90%);
 
     padding: 30px;
 
@@ -786,12 +756,7 @@ body {
     height: 1px;
 
     background:
-        rgba(
-            255,
-            248,
-            235,
-            0.65
-        );
+        rgba(255, 248, 235, 0.65);
 }
 
 .hero-divider i {
@@ -828,21 +793,17 @@ body {
 
     z-index: 10;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     color: #fff7e9;
 
     opacity: 0;
 
-    transition:
-        opacity 0.8s ease;
+    transition: opacity 0.8s ease;
 }
 
 .scroll-hint.visible {
@@ -873,13 +834,11 @@ body {
 
     0%,
     100% {
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(8px);
+        transform: translateY(8px);
     }
 }
 
@@ -895,7 +854,6 @@ body {
     min-height: 100svh;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -912,19 +870,13 @@ body {
 
     z-index: 2;
 
-    width:
-        min(680px, 100%);
+    width: min(680px, 100%);
 }
 
 
 /* ==================================================
    DEKORATIVA SIDOLINJER
 ================================================== */
-
-/*
-   Två mycket tunna linjer längs varje sida.
-   Ger känslan av exklusivt tryckt brevpapper.
-*/
 
 .welcome-section::before,
 .countdown-section::before,
@@ -1019,18 +971,12 @@ body {
         linear-gradient(
             90deg,
             transparent,
-            rgba(
-                158,
-                120,
-                68,
-                0.55
-            )
+            rgba(158, 120, 68, 0.55)
         );
 }
 
 .eyebrow::after {
-    transform:
-        scaleX(-1);
+    transform: scaleX(-1);
 }
 
 
@@ -1073,12 +1019,7 @@ body {
         linear-gradient(
             90deg,
             transparent,
-            rgba(
-                157,
-                118,
-                65,
-                0.65
-            ),
+            rgba(157, 118, 65, 0.65),
             transparent
         );
 }
@@ -1104,9 +1045,6 @@ body {
         0 0 0 5px
         #fffaf4;
 }
-
-
-/* Rätt färg runt diamanten */
 
 .countdown-section
 .small-divider::before,
@@ -1145,10 +1083,6 @@ body {
    LITEN BLOMDEKORATION
 ================================================== */
 
-/*
-   En diskret blomma längst ner i varje sektion.
-*/
-
 .section-content::after {
     content: "✾";
 
@@ -1168,22 +1102,18 @@ body {
     line-height: 1;
 
     color:
-        rgba(
-            151,
-            111,
-            59,
-            0.46
-        );
+        rgba(151, 111, 59, 0.46);
 }
 
 
-/* Lite mjukare blomma på välkomstsidan */
+/* ==================================================
+   VÄLKOMMEN
+   Ingen extra blomma här eftersom hjärtat redan finns
+================================================== */
 
-.welcome-section
-.section-content::after {
-    content: "❀";
-
-    font-size: 26px;
+.welcome-section .section-content::after {
+    content: none;
+    display: none;
 }
 
 
@@ -1215,7 +1145,7 @@ body {
 
 
 /* ==================================================
-   NEDRÄKNING
+   COUNTDOWN
 ================================================== */
 
 .countdown {
@@ -1243,16 +1173,10 @@ body {
     width: 42px;
     height: 1px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background:
-        rgba(
-            154,
-            116,
-            64,
-            0.28
-        );
+        rgba(154, 116, 64, 0.28);
 }
 
 .countdown div {
@@ -1298,11 +1222,15 @@ body {
     line-height: 1.8;
 }
 
+
+/* Kartan räknas nu från innehållets bredd
+   istället för hela skärmens bredd */
+
 .map-container {
     position: relative;
 
-    width:
-        min(750px, 92vw);
+    width: 100%;
+    max-width: 680px;
 
     height: 330px;
 
@@ -1313,26 +1241,18 @@ body {
 
     border:
         1px solid
-        rgba(
-            157,
-            119,
-            67,
-            0.18
-        );
+        rgba(157, 119, 67, 0.18);
 
     border-radius: 4px;
 
     box-shadow:
         0 12px 35px
-        rgba(
-            75,
-            55,
-            36,
-            0.08
-        );
+        rgba(75, 55, 36, 0.08);
 }
 
 .map-container iframe {
+    display: block;
+
     width: 100%;
     height: 100%;
 
@@ -1349,20 +1269,10 @@ body {
 
     border:
         1px solid
-        rgba(
-            155,
-            116,
-            63,
-            0.60
-        );
+        rgba(155, 116, 63, 0.60);
 
     background:
-        rgba(
-            255,
-            250,
-            244,
-            0.50
-        );
+        rgba(255, 250, 244, 0.50);
 
     color: #7e5c31;
 
@@ -1414,16 +1324,8 @@ body {
 
     border:
         1px solid
-        rgba(
-            155,
-            116,
-            63,
-            0.17
-        );
+        rgba(155, 116, 63, 0.17);
 }
-
-
-/* Små hörn på programrutan */
 
 .program-coming::after {
     content: "◇";
@@ -1435,18 +1337,12 @@ body {
 
     width: 28px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background: #f1e7dc;
 
     color:
-        rgba(
-            145,
-            106,
-            57,
-            0.58
-        );
+        rgba(145, 106, 57, 0.58);
 
     font-size: 14px;
 }
@@ -1468,12 +1364,7 @@ body {
 
     border:
         1px solid
-        rgba(
-            155,
-            116,
-            63,
-            0.16
-        );
+        rgba(155, 116, 63, 0.16);
 }
 
 .information-card::before {
@@ -1485,12 +1376,7 @@ body {
 
     border:
         1px solid
-        rgba(
-            155,
-            116,
-            63,
-            0.08
-        );
+        rgba(155, 116, 63, 0.08);
 
     pointer-events: none;
 }
@@ -1505,8 +1391,7 @@ body {
 
     width: 28px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     background: #fffaf4;
 
@@ -1517,12 +1402,7 @@ body {
     font-size: 16px;
 
     color:
-        rgba(
-            145,
-            106,
-            57,
-            0.55
-        );
+        rgba(145, 106, 57, 0.55);
 }
 
 .information-card h3 {
@@ -1582,7 +1462,6 @@ body {
     display: flex;
 
     flex-direction: column;
-
     align-items: center;
 
     margin:
@@ -1622,43 +1501,24 @@ body {
     width:
         min(500px, 100%);
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
     padding:
         38px 34px;
 
     background:
-        rgba(
-            255,
-            252,
-            247,
-            0.72
-        );
+        rgba(255, 252, 247, 0.72);
 
     border:
         1px solid
-        rgba(
-            157,
-            119,
-            67,
-            0.24
-        );
+        rgba(157, 119, 67, 0.24);
 
     border-radius: 3px;
 
     box-shadow:
         0 15px 45px
-        rgba(
-            76,
-            57,
-            38,
-            0.07
-        );
+        rgba(76, 57, 38, 0.07);
 }
-
-
-/* Innerlinje på OSA-rutan */
 
 #rsvpForm::before {
     content: "";
@@ -1669,12 +1529,7 @@ body {
 
     border:
         1px solid
-        rgba(
-            157,
-            119,
-            67,
-            0.08
-        );
+        rgba(157, 119, 67, 0.08);
 
     pointer-events: none;
 }
@@ -1718,12 +1573,7 @@ body {
 
     border-bottom:
         1px solid
-        rgba(
-            142,
-            108,
-            63,
-            0.40
-        );
+        rgba(142, 108, 63, 0.40);
 
     outline: none;
 
@@ -1742,18 +1592,12 @@ body {
 }
 
 #guestName:focus {
-    border-bottom-color:
-        #9b7440;
+    border-bottom-color: #9b7440;
 }
 
 #guestName::placeholder {
     color:
-        rgba(
-            81,
-            72,
-            63,
-            0.42
-        );
+        rgba(81, 72, 63, 0.42);
 }
 
 
@@ -1777,12 +1621,7 @@ body {
 
     border:
         1px solid
-        rgba(
-            146,
-            111,
-            65,
-            0.38
-        );
+        rgba(146, 111, 65, 0.38);
 
     background: transparent;
 
@@ -1805,15 +1644,13 @@ body {
 }
 
 .attendance-button:hover {
-    border-color:
-        #9b7440;
+    border-color: #9b7440;
 }
 
 .attendance-button.selected {
     background: #96703d;
 
-    border-color:
-        #96703d;
+    border-color: #96703d;
 
     color: #fffaf3;
 }
@@ -1835,12 +1672,7 @@ body {
 
     border:
         1px solid
-        rgba(
-            146,
-            111,
-            65,
-            0.25
-        );
+        rgba(146, 111, 65, 0.25);
 }
 
 .guest-counter button {
@@ -1897,11 +1729,9 @@ body {
         1px solid
         #95703f;
 
-    background:
-        #95703f;
+    background: #95703f;
 
-    color:
-        #fffaf3;
+    color: #fffaf3;
 
     font-family:
         "Montserrat",
@@ -1974,20 +1804,10 @@ body {
 
     border:
         1px solid
-        rgba(
-            156,
-            119,
-            67,
-            0.25
-        );
+        rgba(156, 119, 67, 0.25);
 
     background:
-        rgba(
-            255,
-            252,
-            247,
-            0.65
-        );
+        rgba(255, 252, 247, 0.65);
 }
 
 .confirmation-heart {
@@ -2035,7 +1855,6 @@ body {
     display: flex;
 
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 
@@ -2043,24 +1862,14 @@ body {
 
     border-top:
         1px solid
-        rgba(
-            150,
-            112,
-            61,
-            0.18
-        );
+        rgba(150, 112, 61, 0.18);
 
-    background:
-        #e7dbcd;
+    background: #e7dbcd;
 
-    color:
-        #84663e;
+    color: #84663e;
 
     text-align: center;
 }
-
-
-/* Blomma ovanför initialerna */
 
 .footer::before {
     content: "❀";
@@ -2080,16 +1889,8 @@ body {
     font-size: 22px;
 
     color:
-        rgba(
-            137,
-            101,
-            55,
-            0.42
-        );
+        rgba(137, 101, 55, 0.42);
 }
-
-
-/* Små linjer runt blomman */
 
 .footer::after {
     content: "";
@@ -2108,24 +1909,9 @@ body {
     background:
         linear-gradient(
             90deg,
-            rgba(
-                137,
-                101,
-                55,
-                0
-            ),
-            rgba(
-                137,
-                101,
-                55,
-                0.28
-            ),
-            rgba(
-                137,
-                101,
-                55,
-                0
-            )
+            rgba(137, 101, 55, 0),
+            rgba(137, 101, 55, 0.28),
+            rgba(137, 101, 55, 0)
         );
 }
 
@@ -2168,20 +1954,21 @@ body {
 
 @media (max-width: 700px) {
 
+    /* ==============================================
+       INTRO
+    ============================================== */
+
     .invitation-card {
         width: 87vw;
     }
-
 
     .baby-breath {
         width: 53%;
     }
 
-
     .seal-button {
         width: 21%;
     }
-
 
     .open-hint {
         top: 65%;
@@ -2190,7 +1977,6 @@ body {
 
         letter-spacing: 2px;
     }
-
 
     .music-button {
         right: 15px;
@@ -2201,29 +1987,43 @@ body {
     }
 
 
+    /* ==============================================
+       HERO BILD
+    ============================================== */
+
     .hero-photo {
         opacity: 0.78;
     }
 
 
+    /* ==============================================
+       HERO LILJOR
+       Mindre på telefon så de inte täcker paret
+    ============================================== */
+
     .hero-lily {
-        height: 88%;
+        top: 21%;
 
-        top: 6%;
+        width: auto;
+        height: 58%;
 
-        opacity: 0.64;
+        object-fit: contain;
+
+        opacity: 0.58;
     }
-
 
     .hero-lily-left {
-        left: -28%;
+        left: -20%;
     }
-
 
     .hero-lily-right {
-        right: -28%;
+        right: -20%;
     }
 
+
+    /* ==============================================
+       UNDERSIDOR
+    ============================================== */
 
     .section {
         padding:
@@ -2231,7 +2031,9 @@ body {
     }
 
 
-    /* Sidolinjer */
+    /* ==============================================
+       SIDOLINJER
+    ============================================== */
 
     .welcome-section::before,
     .countdown-section::before,
@@ -2244,7 +2046,6 @@ body {
         top: 28px;
         bottom: 28px;
     }
-
 
     .welcome-section::after,
     .countdown-section::after,
@@ -2259,7 +2060,9 @@ body {
     }
 
 
-    /* Små rubriker */
+    /* ==============================================
+       RUBRIKER
+    ============================================== */
 
     .eyebrow {
         gap: 9px;
@@ -2267,45 +2070,64 @@ body {
         letter-spacing: 3px;
     }
 
-
     .eyebrow::before,
     .eyebrow::after {
         width: 20px;
     }
-
-
-    /* Dekorationslinje */
 
     .small-divider {
         width: 105px;
     }
 
 
-    /* Nedräkning */
+    /* ==============================================
+       NEDRÄKNING
+    ============================================== */
 
     .countdown {
         gap: 12px;
     }
 
-
     .countdown div {
         min-width: 67px;
     }
-
 
     .countdown strong {
         font-size: 39px;
     }
 
 
-    /* Karta */
+    /* ==============================================
+       KARTA
+       Centrerad och håller sig inom inbjudan
+    ============================================== */
+
+    .location-section .section-content {
+        width: 100%;
+        max-width: 100%;
+    }
 
     .map-container {
-        height: 270px;
+        width: 100%;
+        max-width: 100%;
+
+        height: 260px;
+
+        margin:
+            30px auto 22px;
+    }
+
+    .map-container iframe {
+        display: block;
+
+        width: 100%;
+        height: 100%;
     }
 
 
-    /* Program */
+    /* ==============================================
+       PROGRAM
+    ============================================== */
 
     .program-coming {
         padding:
@@ -2313,7 +2135,9 @@ body {
     }
 
 
-    /* Information */
+    /* ==============================================
+       INFORMATION
+    ============================================== */
 
     .information-card {
         padding:
@@ -2321,24 +2145,23 @@ body {
     }
 
 
-    /* OSA */
+    /* ==============================================
+       OSA
+    ============================================== */
 
     #rsvpForm {
         padding:
             32px 20px;
     }
 
-
     .attendance-buttons {
         grid-template-columns:
             1fr;
     }
 
-
     .rsvp-description {
         font-size: 19px;
     }
-
 
     .rsvp-deadline strong {
         font-size: 25px;
@@ -2357,36 +2180,29 @@ body {
         padding-right: 27px;
     }
 
-
     .countdown {
         gap: 7px;
     }
-
 
     .countdown div {
         min-width: 61px;
     }
 
-
     .countdown strong {
         font-size: 34px;
     }
-
 
     .countdown span {
         font-size: 7px;
     }
 
-
     .hero-date {
         font-size: 19px;
     }
 
-
     .hero-divider span {
         width: 45px;
     }
-
 
     .eyebrow {
         font-size: 8px;
@@ -2394,10 +2210,39 @@ body {
         letter-spacing: 2px;
     }
 
-
     .eyebrow::before,
     .eyebrow::after {
         width: 14px;
+    }
+
+
+    /* Ännu lite mindre liljor på väldigt smala mobiler */
+
+    .hero-lily {
+        height: 52%;
+
+        top: 24%;
+
+        opacity: 0.55;
+    }
+
+    .hero-lily-left {
+        left: -22%;
+    }
+
+    .hero-lily-right {
+        right: -22%;
+    }
+
+
+    /* Kartan får plats även på små mobiler */
+
+    .map-container {
+        width: 100%;
+        height: 235px;
+
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -2406,9 +2251,7 @@ body {
    REDUCERAD RÖRELSE
 ================================================== */
 
-@media (
-    prefers-reduced-motion: reduce
-) {
+@media (prefers-reduced-motion: reduce) {
 
     .seal-button,
     .scroll-arrow {

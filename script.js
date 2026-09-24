@@ -634,10 +634,22 @@ rsvpForm.addEventListener(
         if (!guestName) {
 
             formError.textContent =
-                "Skriv ditt namn.";
+                "Skriv ditt för- och efternamn.";
 
             return;
 
+        }
+
+        const nameParts =
+            guestName
+                .split(/\s+/)
+                .filter(Boolean)
+        
+        if (nameParts.length < 2) {
+            formError.textContent =
+                "Vänligen ange både förnman och efternamn";
+            
+            return;
         }
 
 

@@ -262,7 +262,7 @@ window.addEventListener(
 
 const weddingDate =
     new Date(
-        "2026-11-07T00:00:00"
+        "2026-11-07T17:00:00"
     );
 
 
